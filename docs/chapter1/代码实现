@@ -1,0 +1,44 @@
+## **代码实现**
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['font.sans-serif'] = ['SimSun'] #matplotlib字体显示，修改成宋体可以显示汉字了
+from mpl_toolkits.mplot3d import Axes3D
+
+
+# 定义词汇及其对应的三维向量
+words = ["猫", "狗", "爱", "跑"]
+vectors = [[0.3, 0.4, 0.25], [0.35, 0.45, 0.3], [0.8, 0.8, 0.8], [0.1, 0.2, 0.6]]
+
+# 将嵌套列表转换为numpy数组
+vectors = np.array(vectors)
+
+# 创建3D图形
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+
+# 为每个词汇及其向量绘图
+scatter = ax.scatter(vectors[:, 0], vectors[:, 1], vectors[:, 2],
+                     c=['blue', 'green', 'red', 'purple'], s=100)
+
+# 为每个点添加标签
+for i, word in enumerate(words):
+    ax.text(vectors[i, 0], vectors[i, 1], vectors[i, 2], word, size=15, zorder=1)
+
+# 设置图形属性
+ax.set_xlabel('X 轴', fontsize=14)
+ax.set_ylabel('Y 轴', fontsize=14)
+ax.set_zlabel('Z 轴', fontsize=14)
+
+# 移除坐标轴的数字标签
+ax.set_xticklabels([])
+ax.set_yticklabels([])
+ax.set_zticklabels([])
+
+# 设置背景颜色和网格线
+ax.set_facecolor('white')
+ax.grid(True)
+
+# 显示图形
+plt.show()
+```
