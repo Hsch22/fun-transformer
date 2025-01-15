@@ -1,4 +1,4 @@
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimSun'] #matplotlib字体显示，修改成宋体可以显示汉字了
